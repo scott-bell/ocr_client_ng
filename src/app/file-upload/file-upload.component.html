@@ -1,0 +1,46 @@
+<app-alert-success
+  *ngIf="uploadService.complete"
+  (close)="onHandleError()"
+  message="Successfully uploaded {{uploadService.documentModel.filename}}">
+</app-alert-success>
+
+<div class="row" *ngIf="uploadService.error">
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    {{ uploadService.error }}
+  </div>
+</div>
+
+<div *ngIf="uploadService.loading" class="container-fluid" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="container-fluid">
+  <div class="row-fluid" *ngIf="!uploadService.loading && !uploadService.documentModel">
+    <div class="row dropzone" (click)="showFileSelector()">
+      <div class="text" style="margin: 10px auto; text-align: center">
+        <span class="glyphicon glyphicon-cloud-upload"></span>
+      </div>
+    </div>
+    <form (ngSubmit)="onSubmit()" #form="ngForm" >
+      <div class="form-group" hidden>
+        <label for="file" >File</label>
+        <input
+          type="file"
+          #file
+          class="form-control"
+          id="file"
+          [disabled]="uploadService.complete"
+          (change)="onFilesAdded()"
+          >
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-document
+  *ngFor="let doc of uploadService.documents"
+  [doc]="doc">
+</app-document>
+

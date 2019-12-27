@@ -1,0 +1,32 @@
+.container {
+  margin-top: 30px;
+}
+
+.row {
+  margin: 20px 0;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  background-color: #eef;
+  cursor: pointer;
+  height: 180px;
+  border: 2px dashed #717386;
+  border-radius: 5px;
+  font-size: 16px;
+
+}
+
+.glyphicon {
+  font-size: 50px;
+}
+
+.vertical-center {
+  margin: 10px 0 0 15px;
+  position: relative;
+  top: 10%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+

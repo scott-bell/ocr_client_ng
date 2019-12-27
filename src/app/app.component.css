@@ -1,0 +1,19 @@
+
+@font-face {
+  font-family: 'Audiowide';
+  src: url(/src/assets/Audiowide-Regular.ttf) format("truetype");
+  font-weight:300;
+}
+
+h1 {
+  font-family: 'Audiowide', cursive;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+.row {
+  margin: 20px 0;
+}
+

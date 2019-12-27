@@ -1,0 +1,12 @@
+div.container-fluid {
+  background-color: lightgray;
+  border-bottom: 5px black solid;
+}
+
+.vertical-center {
+  margin: 10px 0 0 15px;
+  position: relative;
+  top: 10%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

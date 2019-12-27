@@ -1,0 +1,40 @@
+<div class="panel"
+     [ngClass]="{
+          'panel-success' : doc.status === 'COMPLETE',
+          'panel-default' : doc.status === 'NEW' || doc.status === 'PENDING' || doc.status === 'QUEUED'
+          }"
+>
+  <div class="panel-heading">{{doc.filename}} ({{doc.id}})</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img style="max-height: 100px; max-width: 190px" alt="{{doc.filename}}" src="http://localhost:8080/document/{{doc.id}}/image" />
+      </div>
+      <div class="col-md-10">
+        <table class="table table-condensed">
+          <tr><td>Status</td><td>{{doc.status}}</td></tr>
+          <tr><td>Language</td><td>{{doc.language}}</td></tr>
+          <tr><td>Export format</td><td>{{doc.export_format}}</td></tr>
+        </table>
+        <div class="btn-group">
+          <button [disabled]="!doc.canDelete()" class="btn btn-danger btn-xs" (click)="onDelete()">
+            <app-loading-spinner-small *ngIf="doc.deleting"></app-loading-spinner-small> Delete
+          </button>
+        </div>
+        &nbsp;
+        <div class="btn-group">
+          <button [disabled]="!doc.canProcess()" class="btn btn-xs btn-success" (click)="onStartOCR()">
+            <app-loading-spinner-small *ngIf="doc.isOCRRunning()"></app-loading-spinner-small>
+            OCR
+          </button>
+        </div>
+        &nbsp;
+        <div class="btn-group">
+          <button [disabled]="!doc.canDownload()" class="btn btn-xs btn-primary" (click)="onDownload()">
+            Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

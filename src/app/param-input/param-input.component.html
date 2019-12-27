@@ -1,0 +1,134 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="form-group">
+    <label for="desc">ID</label>
+    <input
+      type="text"
+      class="form-control"
+      id="id"
+      required
+      [(ngModel)]="uploadService.documentModel.id"
+      name="id"
+      disabled>
+  </div>
+  <div class="form-group">
+    <label for="desc">Status</label>
+    <input
+      type="text"
+      class="form-control"
+      id="status"
+      required
+      [(ngModel)]="uploadService.documentModel.status"
+      name="status"
+      disabled>
+  </div>
+  <div class="form-group">
+    <label for="desc">Description</label>
+    <input
+      type="text"
+      class="form-control"
+      id="desc"
+      [(ngModel)]="uploadService.documentModel.desc"
+      name="desc"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="language">Language</label>
+    <select
+      id="language"
+      class="form-control"
+      name="language"
+      [(ngModel)]="uploadService.documentModel.language"
+    >
+      <option value="Dutch">Dutch</option>
+      <option value="English">English</option>
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Russian">Russian</option>
+      <option value="Spanish">Spanish: Castilian</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="language">Profile</label>
+    <select
+      id="profile"
+      class="form-control"
+      name="profile"
+      [(ngModel)]="uploadService.documentModel.profile"
+    >
+      <option value="barcodeRecognition">Barcode recognition</option>
+      <option value="documentArchiving">Document archiving</option>
+      <option value="documentConversion">Document conversion</option>
+      <option value="textExtraction">Text extraction</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="language">Image Souce</label>
+    <select
+      id="image_source"
+      class="form-control"
+      name="image_source"
+      [(ngModel)]="uploadService.documentModel.image_source"
+    >
+      <option value="auto">Auto</option>
+      <option value="barcodeRecognition">Barcode recognition</option>
+      <option value="documentArchiving">Document archiving</option>
+      <option value="documentConversion">Document conversion</option>
+      <option value="textExtraction">Text extraction</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="language">Text type</label>
+    <select
+      id="text_type"
+      class="form-control"
+      name="text_type"
+      [(ngModel)]="uploadService.documentModel.text_type"
+    >
+      <option value="normal">Normal</option>
+      <option value="typewriter">Typewriter</option>
+      <option value="matrix">Matrix</option>
+      <option value="index">Index</option>
+      <option value="handprinted">Handprinted</option>
+      <option value="ocrA">OCR A</option>
+      <option value="ocrB">OCR B</option>
+      <option value="e13b">MICR</option>
+      <option value="cmc7">CMC-7</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="exportFormat">Export format</label>
+    <select
+      id="exportFormat"
+      class="form-control"
+      name="exportFormat"
+      [(ngModel)]="uploadService.documentModel.export_format"
+    >
+      <option value="txt">Text</option>
+      <option value="txtUnstructured">Text (unstructured)</option>
+      <option value="rtf">Rich Text Format (rtf)</option>
+      <option value="docx">Microsoft Word (docx)</option>
+      <option value="xlsx">Microsoft Excel (xlsx)</option>
+      <option value="pptx">Microsoft Powerpoint (pptx)</option>
+      <option value="pdfSearchable">PDF (searchable)</option>
+      <option value="pdfTextAndImages">PDF (text and images)</option>
+      <option value="pdfa">PDF A</option>
+      <option value="xml">XML</option>
+      <option value="xmlForCorrectedImage">XML (for corrected image)</option>
+      <option value="alto">Alto</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary"
+            type="button">Save</button>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-success"
+            type="button">Next</button>
+  </div>
+</form>
