@@ -8,7 +8,7 @@ import {UploadService} from "../service/upload.service";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private uploadService: UploadService) { }
+  constructor(public uploadService: UploadService) { }
 
   ngOnInit() {
   }

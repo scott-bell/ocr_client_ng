@@ -30,7 +30,7 @@ export class FileUploadComponent implements OnInit {
   error: string = "something didn't work!";
   @ViewChild('file', {static: false}) file;
 
-  constructor(private uploadService: UploadService,
+  constructor(public uploadService: UploadService,
               private router: Router) {
 
   }

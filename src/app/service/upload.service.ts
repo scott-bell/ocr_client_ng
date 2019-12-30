@@ -13,7 +13,7 @@ export class UploadService {
   documentModel: DocumentModel = null;
   documents: Set<DocumentModel> = new Set();
   state: string = 'ready';
-  url = 'http://localhost:8080/document';
+  url = '/document';
 
   private myTimerSub: Subscription;
 
@@ -36,7 +36,7 @@ export class UploadService {
   }
 
   deleteFile(doc: DocumentModel) {
-    const url = 'http://localhost:8080/document/' + doc.id
+    const url = this.url + "/" + doc.id
 
     const formData: FormData = new FormData();
     const req = new HttpRequest('DELETE', url, formData, {
@@ -121,7 +121,7 @@ export class UploadService {
       ))
     {
       this.http.get(
-        'http://localhost:8080/document/' + doc.id)
+        this.url + "/" + doc.id)
         .subscribe(responseData => {
             console.log(responseData);
             const item = responseData["item"];
@@ -136,7 +136,7 @@ export class UploadService {
   sendUpdate(doc: DocumentModel) {
     this.httpPending = true;
     this.http.put(
-      'http://localhost:8080/document/' + doc.id,
+      this.url + "/" + doc.id,
       doc)
       .subscribe(responseData => {
         this.httpPending = false;

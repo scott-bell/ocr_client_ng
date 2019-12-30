@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {UploadService} from "../service/upload.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
+import {UploadService} from "../service/upload.service";
 
 @Component({
   selector: 'app-param-input',
@@ -11,8 +11,7 @@ import {NgForm} from "@angular/forms";
 export class ParamInputComponent implements OnInit {
   @ViewChild('form', {static: false}) optionsForm: NgForm;
 
-  constructor(private uploadService: UploadService,
-              private router: Router) {
+  constructor(public uploadService: UploadService, private router: Router) {
 
   }
 

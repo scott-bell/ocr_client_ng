@@ -27,6 +27,6 @@ export class DocumentComponent implements OnInit {
   }
 
   onDownload() {
-    window.open("http://localhost:8080/document/" + this.doc.id + "/result", "_blank");
+    window.open("/document/" + this.doc.id + "/result", "_blank");
   }
 }
